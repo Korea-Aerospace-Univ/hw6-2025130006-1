@@ -3,14 +3,14 @@
 int main(void)
 {
     char arr[10] = {};
-    char *p = arr;
+    char *p = nullptr;
     
-    for (char *p = arr ; p < arr + 10; *p++) scanf ("%c", p);
+    for (p = arr ; p < arr + 10; *p++) scanf ("%c", p);
     
     char max_char = '\0';
     int max_count = 0;
     
-    for (char *p = arr ; p < arr + 10 ; *p++) {
+    for (p = arr; p < arr + 10 ; *p++) {
         int current_count = 0;
         
         for (char *q = arr ; q < arr + 10 ; *q++) {
