@@ -8,14 +8,16 @@ int main(void)
     int arr1[20] = {};
     int arr2[20] = {};
     
-    int *p = arr1;
-    for (int i = 0; i < N; i++) scanf("%d", p + i);
+    int *p = nullptr;
+    for (p = arr1 ; p < arr1 + N; *p++) scanf("%d", p);
     
-    int *q = arr2;
-    for (int i = 0; i < N; i++) scanf("%d", q + i);
+    int *q = nullptr;
+    for (q = arr2 ; q < arr2 + N; *q++) scanf("%d", q);
+
+    int sum = 0;
     
-    for (int i = 0; i < N; i++) {
-        int sum = *(p + i) + *(q + N - 1 - i);
+    for (p = arr1, q = arr2 + N - 1 ; p < arr1 + N ; *p++, *q--) {
+        sum = *p + *q;
         printf(" %d", sum);
     }
     
