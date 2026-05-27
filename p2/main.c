@@ -2,24 +2,28 @@
 
 int main(void)
 {
-    int N;
-    scanf("%d", &N);
+    char arr[10] = {};
+    char *p = nullptr;
+    char *q = nullptr;
     
-    int arr1[20] = {};
-    int arr2[20] = {};
+    for (p = arr ; p < arr + 10; p++) scanf ("%c", p);
     
-    int *p = nullptr;
-    for (p = arr1 ; p < arr1 + N; p++) scanf("%d", p);
+    char max_char = '\0';
+    int max_count = 0;
     
-    int *q = nullptr;
-    for (q = arr2 ; q < arr2 + N; q++) scanf("%d", q);
-
-    int sum = 0;
-    
-    for (p = arr1, q = arr2 + N - 1 ; p < arr1 + N ; p++, q--) {
-        sum = *p + *q;
-        printf(" %d", sum);
+    for (p = arr; p < arr + 10 ; p++) {
+        int current_count = 0;
+        
+        for (q = arr ; q < arr + 10 ; q++) {
+            if (*p == *q) current_count++;
+        }
+        if (current_count > max_count) {
+        max_count = current_count;
+        max_char = *p;
+        }
     }
-    
+        
+    printf("%c %d", max_char , max_count);
+        
     return 0;
 }
